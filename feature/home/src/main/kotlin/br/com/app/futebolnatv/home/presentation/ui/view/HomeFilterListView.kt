@@ -40,7 +40,8 @@ fun HomeFilterListView(
         LazyRow {
             itemsIndexed(filterList) { index, item ->
                 Row (Modifier.padding(end = DSMargin.xxs)){
-                    DSChip(selected = item != "Time" &&  item != "Canal",
+                    DSChip(
+                        selected = item != "Time" &&  item != "Canal",
                         text = item,
                         onClick = {
                             when (index) {

@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface MatchApiDataSource {
 
-    @GET("team")
+    @GET("match")
     suspend fun getMatchList(): List<MatchApiResponse>
 }

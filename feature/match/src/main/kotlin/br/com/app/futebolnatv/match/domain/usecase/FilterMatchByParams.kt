@@ -9,15 +9,23 @@ class FilterMatchByParamsUseCase @Inject constructor(): BaseUseCase<MatchFilter,
 
     override suspend fun invoke(param: MatchFilter?): List<Match> {
         var listMatchFiltered = param?.matchList ?: return emptyList()
-        if (param.teamNameFilter.isNotEmpty())  {
+
+        param.teamNameFilter?.let { team ->
             listMatchFiltered = listMatchFiltered.filter { match ->
-                match.teamAway.name == param.teamNameFilter ||  match.teamHome.name == param.teamNameFilter
+                match.teamAway.id == team.id || match.teamHome.id == team.id
             }
         }
 
-        if (param.championshipNameFilter.isNotEmpty())  {
+        param.championshipNameFilter?.let { championship ->
             listMatchFiltered = listMatchFiltered.filter { match ->
-                match.championship.name == param.championshipNameFilter }
+                match.championship.id == championship.id
+            }
+
+        }
+        param.channelNameFilter?.let { channel ->
+            listMatchFiltered = listMatchFiltered.filter { match ->
+                match.channels.contains(channel)
+            }
         }
 
         return listMatchFiltered

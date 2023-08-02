@@ -9,7 +9,7 @@ import androidx.compose.material3.Scaffold
 import br.com.app.futebolnatv.designsystem.core.DSTheme
 import br.com.app.futebolnatv.designsystem.topbar.DSTopBar
 import br.com.app.futebolnatv.channel.domain.model.Channel
-import br.com.app.futebolnatv.channel.presentation.ui.view.ChannelListFilterScreen
+import br.com.app.futebolnatv.channel.presentation.ui.view.ChannelListFilterView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,7 +40,7 @@ class ChannelListFilterActivity : ComponentActivity() {
                         )
                     },
                     content = ({
-                        ChannelListFilterScreen(
+                        ChannelListFilterView(
                             itemSelectedClick = ::itemSelected,
                             itemSelected = channel
                         )

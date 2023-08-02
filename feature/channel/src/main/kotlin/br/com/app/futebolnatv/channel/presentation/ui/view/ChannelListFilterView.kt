@@ -20,7 +20,7 @@ import br.com.app.futebolnatv.channel.presentation.viewmodel.ChannelListFilterSt
 import br.com.app.futebolnatv.channel.presentation.viewmodel.ChannelListFilterViewModel
 
 @Composable
-fun ChannelListFilterScreen(
+fun ChannelListFilterView(
     viewModel: ChannelListFilterViewModel = viewModel(),
     itemSelected: Channel?,
     itemSelectedClick: (Channel?) -> Unit

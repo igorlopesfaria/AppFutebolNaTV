@@ -45,6 +45,7 @@ dependencies {
     implementation(project(Modules.designsystem))
     implementation(project(Modules.team))
     implementation(project(Modules.channel))
+    implementation(project(Modules.match))
 
     //Compose
     implementation(platform(Libs.Compose.getComposeBOM()))

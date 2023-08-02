@@ -1,6 +1,7 @@
 package br.com.app.futebolnatv.di
 
 import br.com.app.futebolnatv.channel.data.datasource.ChannelApiDataSource
+import br.com.app.futebolnatv.match.data.datasource.MatchApiDataSource
 import br.com.app.futebolnatv.team.data.datasource.TeamApiDataSource
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -64,5 +65,11 @@ object ApiDataSourceModule {
     fun providesChannelService(
         retrofit: Retrofit,
     ): ChannelApiDataSource = retrofit.create(ChannelApiDataSource::class.java)
+
+    @Provides
+    @Singleton
+    fun providesMatchService(
+        retrofit: Retrofit,
+    ): MatchApiDataSource = retrofit.create(MatchApiDataSource::class.java)
 
 }

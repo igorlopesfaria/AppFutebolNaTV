@@ -22,12 +22,14 @@ import br.com.app.futebolnatv.channel.domain.model.Channel
 import br.com.app.futebolnatv.channel.presentation.ui.ChannelListFilterActivity
 import br.com.app.futebolnatv.designsystem.button.DSButton
 import br.com.app.futebolnatv.designsystem.core.color.DSColor
+import br.com.app.futebolnatv.match.presentation.ui.view.MatchListView
 import br.com.app.futebolnatv.team.domain.model.Team
 import br.com.app.futebolnatv.team.presentation.ui.TeamListFilterActivity
 
 
 @Composable
 fun HomeContentView(
+
 ) {
     val context = LocalContext.current
 
@@ -80,6 +82,14 @@ fun HomeContentView(
                     val intent = Intent(context, ChannelListFilterActivity::class.java)
                     intent.putExtra("channel", channelSelected.value)
                     launcherChannelFilter.launch(intent)
+                }
+            )
+            MatchListView(
+                teamSelected = teamSelected.value,
+                channelSelected = channelSelected.value,
+                onClickClearFilter = {
+                    teamSelected.value = null
+                    channelSelected.value = null
                 }
             )
         }

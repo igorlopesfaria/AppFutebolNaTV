@@ -23,6 +23,8 @@ object Modules {
 
 object Versions {
 
+    const val SHIMMER_VERSION = "1.0.5"
+    const val COIL_VERSION = "2.4.0"
     const val KOTLIN_VERSION = "1.7.0"
     const val ANDROIDX_CORE_VERSION = "1.9.0"
     const val GRADLE_PLUGIN_VERSION = "7.2.2"
@@ -105,10 +107,19 @@ object Libs {
 
     }
 
+    object Coil {
+        fun getCoilVersion() = "io.coil-kt:coil-compose:${Versions.COIL_VERSION}"
+    }
+
+    object Shimmer {
+        fun getShimmerVersion() = "com.valentinilk.shimmer:compose-shimmer:${Versions.SHIMMER_VERSION}"
+    }
+
     object Lottie {
         fun getLottieVersion() = "com.airbnb.android:lottie:${Versions.LOTTIE_VERSION}"
         fun getLottieComposeVersion() = "com.airbnb.android:lottie-compose:${Versions.LOTTIE_VERSION}"
     }
+
     object LifeCycleVersion {
         fun getLifeCycleViewModelVersion() = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_VERSION}"
         fun getLifeCycleComposeViewModelVersion() = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.LIFECYCLE_VERSION}"

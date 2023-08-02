@@ -23,6 +23,6 @@ class MatchDataModule {
     fun provideMatchMapper(mapper: MatchMapperImpl): MatchMapper = mapper
 
     @Provides
-    fun provideMatchMapper(mapper: ChampionshipMapperImpl): ChampionshipMapper = mapper
+    fun provideChampionshipMapper(mapper: ChampionshipMapperImpl): ChampionshipMapper = mapper
 
 }

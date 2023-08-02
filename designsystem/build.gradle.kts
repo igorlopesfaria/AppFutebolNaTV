@@ -42,8 +42,8 @@ dependencies {
     implementation(project(Modules.core))
 
     // Shimmer
-    implementation("com.valentinilk.shimmer:compose-shimmer:1.0.5")
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(Libs.Coil.getCoilVersion())
+    implementation(Libs.Shimmer.getShimmerVersion())
 
     implementation(Libs.Kotlin.coreKtxVersion())
     implementation(Libs.Activity.getActivityComposeVersion())

@@ -46,6 +46,12 @@ dependencies {
     implementation(project(Modules.team))
     implementation(project(Modules.channel))
 
+    //Coil 
+    implementation(Libs.Coil.getCoilVersion())
+
+    //Shimmer
+    implementation(Libs.Shimmer.getShimmerVersion())
+
     //Compose
     implementation(platform(Libs.Compose.getComposeBOM()))
     implementation(Libs.Compose.getComposeMaterial3Version())
@@ -60,6 +66,9 @@ dependencies {
     kapt(Libs.DaggerHilt.getDaggerHiltCompilerVersion())
 
     //Hilt
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+
     kapt(Libs.Hilt.getHiltCompilerVersion())
 
     // Okhttp3

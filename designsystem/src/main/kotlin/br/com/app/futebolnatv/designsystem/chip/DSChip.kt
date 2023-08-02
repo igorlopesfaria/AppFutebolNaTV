@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.app.futebolnatv.designsystem.R
 import br.com.app.futebolnatv.designsystem.core.DSTheme
 import br.com.app.futebolnatv.designsystem.core.color.DSColor
 import br.com.app.futebolnatv.designsystem.core.dimen.DSIconSize
@@ -33,7 +33,8 @@ fun DSChip(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconRight: ImageVector? = null,
-) {
+    iconLeft: Int? = null,
+    ) {
 
     Surface (
         color = when {
@@ -53,8 +54,20 @@ fun DSChip(
     ) {
         Box(modifier = Modifier.padding(start = 6.dp, end = 9.dp, top = 6.dp,  bottom = 6.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically){
-                if (iconRight != null)
-                    Spacer(modifier = Modifier.width(6.dp))
+                Spacer(modifier = Modifier.width(6.dp))
+
+                iconLeft?.let{
+                    Icon(
+                        painter = painterResource(id = it),
+                        modifier =Modifier.size(15.dp),
+                        contentDescription = "drawable_icons",
+                        tint = when {
+                            selected -> DSColor.green
+                            else -> DSColor.textColorDark
+                        }
+                    )
+                    Spacer(modifier = Modifier.width(3.dp))
+                }
                 Text(
                     text = text,
                     textAlign = TextAlign.Center,
@@ -64,9 +77,9 @@ fun DSChip(
                         else -> DSColor.textColorDark
                     },
                 )
+                Spacer(modifier = Modifier.width(6.dp))
 
-                if(iconRight != null) {
-                    Spacer(modifier = Modifier.width(6.dp))
+                iconRight?.let{
                     Icon(
                         imageVector = iconRight,
                         modifier =Modifier.size(DSIconSize.small),
@@ -88,10 +101,10 @@ private fun DarkFontPreview() {
     DSTheme {
         Surface {
             DSChip(
-                selected = true,
-                iconRight = Icons.Default.ArrowDropDown,
+                selected = false,
+                iconLeft = R.drawable.ic_tv_sm,
                 onClick = { /*TODO*/ },
-                text = " Chip Dark"
+                text = "Chip Dark"
             )
         }
     }
