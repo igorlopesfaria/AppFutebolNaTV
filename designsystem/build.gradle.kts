@@ -13,12 +13,13 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("debug") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            multiDexEnabled = true
+        }
+        getByName("release") {
+            isMinifyEnabled = false
+            multiDexEnabled = true
         }
     }
 
