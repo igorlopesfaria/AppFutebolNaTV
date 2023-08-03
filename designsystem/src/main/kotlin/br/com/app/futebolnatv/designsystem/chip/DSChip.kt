@@ -1,6 +1,7 @@
 package br.com.app.futebolnatv.designsystem.chip
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -27,6 +29,8 @@ import br.com.app.futebolnatv.designsystem.core.DSTheme
 import br.com.app.futebolnatv.designsystem.core.color.DSColor
 import br.com.app.futebolnatv.designsystem.core.dimen.DSIconSize
 import br.com.app.futebolnatv.designsystem.core.font.DSTypography
+import br.com.app.futebolnatv.designsystem.interaction.NoRippleInteractionSource
+
 sealed interface DSChipSize {
     object Small : DSChipSize
     object Normal : DSChipSize
@@ -37,12 +41,12 @@ sealed interface DSChipSize {
 fun DSChip(
     selected: Boolean,
     text: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
+    onClickChip: (() -> Unit)? = null,
     iconRight: ImageVector? = null,
     iconLeft: Int? = null,
     size: DSChipSize = DSChipSize.Normal
     ) {
+    val interactionSource = remember { MutableInteractionSource() }
 
     Surface(
         color = when {
@@ -57,8 +61,12 @@ fun DSChip(
                 else -> DSColor.textColorLight
             },
         ),
-        modifier = modifier,
-        onClick = onClick
+        onClick = { onClickChip?.invoke() },
+        interactionSource = if (onClickChip != null) {
+                interactionSource
+            } else {
+                NoRippleInteractionSource()
+            }
     ) {
         Box(modifier = Modifier.padding(start = 6.dp, end = 9.dp, top = 6.dp, bottom = 6.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -143,21 +151,18 @@ private fun DarkFontPreview() {
             Column {
                 DSChip(
                     selected = false,
-                    iconLeft = R.drawable.ic_tv_sm,
-                    onClick = { /*TODO*/ },
+                    onClickChip = { /*TODO*/ },
                     text = "Chip Dark",
                     size = DSChipSize.Big
                 )
                 DSChip(
                     selected = false,
-                    iconLeft = R.drawable.ic_tv_sm,
-                    onClick = { /*TODO*/ },
+                    onClickChip = { /*TODO*/ },
                     text = "Chip Dark",
                     size = DSChipSize.Normal
                 )
                 DSChip(
                     selected = false,
-                    onClick = { /*TODO*/ },
                     text = "Chip Dark",
                     size = DSChipSize.Small,)
 

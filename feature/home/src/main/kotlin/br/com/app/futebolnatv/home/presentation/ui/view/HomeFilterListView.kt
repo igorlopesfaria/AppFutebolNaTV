@@ -43,7 +43,7 @@ fun HomeFilterListView(
                     DSChip(
                         selected = item != "Time" &&  item != "Canal",
                         text = item,
-                        onClick = {
+                        onClickChip = {
                             when (index) {
                                 0 -> filterTeamClick.invoke()
                                 else -> filterChannelClick.invoke()

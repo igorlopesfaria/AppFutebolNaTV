@@ -125,7 +125,6 @@ fun MatchListContentCellView(match: Match) {
                                 iconLeft = R.drawable.ic_tv_sm,
                                 text = item.name,
                                 size = DSChipSize.Small,
-                                onClick = { }
                             )
                         }
                     }
