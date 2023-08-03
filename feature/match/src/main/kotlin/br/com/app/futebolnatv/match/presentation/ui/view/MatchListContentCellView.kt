@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import br.com.app.futebolnatv.channel.domain.model.Channel
 import br.com.app.futebolnatv.designsystem.R
 import br.com.app.futebolnatv.designsystem.chip.DSChip
+import br.com.app.futebolnatv.designsystem.chip.DSChipSize
 import br.com.app.futebolnatv.designsystem.core.DSTheme
 import br.com.app.futebolnatv.designsystem.core.color.DSColor
 import br.com.app.futebolnatv.designsystem.core.dimen.DSMargin
@@ -47,7 +48,7 @@ fun MatchListContentCellView(match: Match) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(vertical = DSMargin.xxs, horizontal = DSMargin.xs).fillMaxWidth()
+            modifier = Modifier.padding(vertical = DSMargin.xs, horizontal = DSMargin.xs).fillMaxWidth()
         ) {
             Text(
                 text = match.championship.name,
@@ -121,7 +122,9 @@ fun MatchListContentCellView(match: Match) {
                         Row (Modifier.padding(end = DSMargin.xxs)){
                             DSChip(
                                 selected = false,
+                                iconLeft = R.drawable.ic_tv_sm,
                                 text = item.name,
+                                size = DSChipSize.Small,
                                 onClick = { }
                             )
                         }

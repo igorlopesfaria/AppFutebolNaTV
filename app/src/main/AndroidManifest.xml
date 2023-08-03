@@ -8,9 +8,10 @@
         android:name=".FutebolNaTVApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Futebol Na TV"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Na TV!"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:theme="@style/LaunchTheme"
         tools:targetApi="31">
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"

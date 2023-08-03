@@ -31,6 +31,7 @@ object DSFontSize {
 }
 
 object DSIconSize {
+    val tinny = 10.dp
     val small = 14.dp
     val medium = 16.dp
     val large = 20.dp

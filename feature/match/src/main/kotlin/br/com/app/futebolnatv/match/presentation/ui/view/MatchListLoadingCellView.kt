@@ -43,7 +43,7 @@ fun MatchListLoadingCellView() {
         Column(horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
             modifier = Modifier
-                .padding(vertical = DSMargin.xxs, horizontal = DSMargin.xs)
+                .padding(vertical = DSMargin.xs, horizontal = DSMargin.xs)
                 .fillMaxWidth()
         ) {
             Row(

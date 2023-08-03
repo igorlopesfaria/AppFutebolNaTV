@@ -4,7 +4,6 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.app.futebolnatv.channel.domain.model.Channel
-import br.com.app.futebolnatv.channel.presentation.model.mapToUiModel
 import br.com.app.futebolnatv.core.exceptions.data.NetworkException
 import br.com.app.futebolnatv.core.usecase.Result
 import br.com.app.futebolnatv.match.domain.model.Championship
@@ -45,6 +44,7 @@ class MatchListViewModel @Inject constructor(
     var channelSelected: Channel? = null
     var teamSelected: Team? = null
     var championshipSelected: Championship? = null
+
     init {
         findAllMatchList()
     }

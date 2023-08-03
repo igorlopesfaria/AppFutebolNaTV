@@ -75,6 +75,9 @@ dependencies {
     implementation(project(Modules.match))
     implementation(project(Modules.team))
 
+
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     implementation(Libs.DaggerHilt.getDaggerHiltAndroidVersion())
     kapt(Libs.DaggerHilt.getDaggerHiltCompilerVersion())
     kapt(Libs.Hilt.getHiltCompilerVersion())
