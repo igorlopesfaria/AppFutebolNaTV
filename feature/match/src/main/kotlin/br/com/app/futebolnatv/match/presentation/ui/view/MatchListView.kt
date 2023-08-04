@@ -24,6 +24,7 @@ fun MatchListView(
     viewModel: MatchListViewModel = hiltViewModel(),
     channelSelected: Channel?,
     teamSelected: Team?,
+    shouldFilter: Boolean,
     onClickClearFilter: (() -> Unit)
 ) {
 
@@ -32,7 +33,7 @@ fun MatchListView(
     }
     viewModel.channelSelected = channelSelected
     viewModel.teamSelected = teamSelected
-    if(channelSelected != null || teamSelected != null) {
+    if(shouldFilter) {
         viewModel.filterListMatch()
     }
     Box(
