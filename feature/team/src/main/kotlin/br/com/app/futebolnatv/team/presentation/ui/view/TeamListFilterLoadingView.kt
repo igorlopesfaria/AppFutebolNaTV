@@ -9,8 +9,7 @@ import br.com.app.futebolnatv.designsystem.core.DSTheme
 import br.com.app.futebolnatv.designsystem.core.dimen.DSMargin
 
 @Composable
-fun TeamListLoadingView(
-) {
+fun TeamListLoadingView() {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = DSMargin.xs, vertical = DSMargin.xs)
     ) {
